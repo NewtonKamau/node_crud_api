@@ -1,9 +1,11 @@
-//jshint esversion:6
+import express from 'express';
+import bodyParser from 'body-parser';
 
-const express = require("express");
-const bodyParser = require("body-parser");
+import usersRoute from './routes/users.js';
 
 const app = express();
+app.use(bodyParser.json());
+app.use('/', usersRoute);
 
 app.get("/", function (req, res) {
   res.send("Hello");
